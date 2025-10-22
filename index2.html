@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic BMI Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <custom-navbar></custom-navbar>
+    
+    <main class="container mx-auto px-4 py-8">
+        <div id="vanta-bg" class="absolute top-0 left-0 w-full h-full -z-10"></div>
+        
+        <section class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+            <div class="p-8 space-y-6">
+                <h1 class="text-4xl font-bold text-center text-indigo-700">Cosmic BMI Explorer 🚀</h1>
+                <p class="text-center text-gray-600">Calculate your Body Mass Index and explore cosmic health insights</p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="space-y-2">
+                            <label for="height" class="block text-sm font-medium text-gray-700">Height (cm)</label>
+                            <input type="number" id="height" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        
+                        <div class="space-y-2">
+                            <label for="weight" class="block text-sm font-medium text-gray-700">Weight (kg)</label>
+                            <input type="number" id="weight" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                        </div>
+                        
+                        <button onclick="calculateBMI()" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors">
+                            Calculate BMI
+                        </button>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold text-indigo-800 mb-4">Your Results</h3>
+                        <div id="result" class="text-center">
+                            <p class="text-5xl font-bold text-indigo-600">--</p>
+                            <p id="category" class="text-lg mt-2 text-gray-600">Enter your details to calculate</p>
+                        </div>
+                        <div id="health-tips" class="mt-4 text-sm text-gray-600 hidden"></div>
+                    </div>
+                </div>
+                
+                <div class="border-t pt-6 mt-8">
+                    <h2 class="text-2xl font-bold text-center text-indigo-700 mb-4">Cosmic Health Questions</h2>
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-indigo-700">1. How often do you exercise?</h3>
+                            <select class="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md">
+                                <option>Daily</option>
+                                <option>3-4 times a week</option>
+                                <option>Rarely</option>
+                            </select>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-indigo-700">2. What's your sleep quality like?</h3>
+                            <select class="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md">
+                                <option>Excellent</option>
+                                <option>Good</option>
+                                <option>Poor</option>
+                            </select>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold text-indigo-700">3. How would you describe your diet?</h3>
+                            <select class="mt-2 w-full px-4 py-2 border border-gray-300 rounded-md">
+                                <option>Mostly healthy</option>
+                                <option>Mixed</option>
+                                <option>Mostly junk food</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <custom-footer></custom-footer>
+    
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+        
+        // Vanta.js background animation
+        VANTA.NET({
+            el: "#vanta-bg",
+            color: 0x7c3aed,
+            backgroundColor: 0xf3f4f6,
+            points: 12,
+            maxDistance: 22,
+            spacing: 18
+        });
+    </script>
+</body>
+</html>
