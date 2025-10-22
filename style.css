@@ -1,0 +1,67 @@
+/* Custom styles to enhance the BMI calculator */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+}
+
+/* Custom shadow for calculator card */
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Animation for BMI circle */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#bmiCircle.animated {
+    animation: pulse 1.5s ease-in-out;
+}
+
+/* Transition for FAQ items */
+.faq-content {
+    transition: max-height 0.3s ease-out, opacity 0.3s ease;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+.faq-content.show {
+    max-height: 500px;
+    opacity: 1;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #bmiCircle {
+        width: 120px;
+        height: 120px;
+    }
+    
+    #bmiValue {
+        font-size: 2rem;
+    }
+}
